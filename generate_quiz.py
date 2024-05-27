@@ -10,7 +10,9 @@ table = Table()
 
 def main(args):
 
-    with open(args.output_filepath, "w") as f:
+    output_filepath = args.output_filepath or "quiz.txt"
+
+    with open(output_filepath, "w") as f:
 
         while len(deck.remaining) > 0:
             cards = deck.deal() + deck.deal()
