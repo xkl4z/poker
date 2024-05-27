@@ -43,6 +43,23 @@ class Table:
 
         return {action_name: action for action_name, action in action_sequence}
 
+    def to_string(self):
+        output_string = ""
+        position_idx = 0
+        for row in self.GRID:
+            for position in row:
+                if position is None:
+                    output_string += "     "
+                else:
+                    output_string += (
+                        self.POSITION_NAMES[position].replace("__________", self.actions[position])
+                        + "    "
+                    )
+                    position_idx += 1
+            output_string += "\n"
+
+        return output_string
+
     def print_table(self):
         position_idx = 0
         for row in self.GRID:
