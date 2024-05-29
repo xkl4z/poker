@@ -61,18 +61,7 @@ class Table:
         return output_string
 
     def print_table(self):
-        position_idx = 0
-        for row in self.GRID:
-            for position in row:
-                if position is None:
-                    print("     ", end="")
-                else:
-                    printed_output = self.POSITION_NAMES[position].replace(
-                        "__________", self.actions[position]
-                    )
-                    print(printed_output, end="    ")
-                    position_idx += 1
-            print("\n")
+        print(self.to_string())
 
 
 if __name__ == "__main__":
